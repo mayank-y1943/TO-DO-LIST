@@ -9,18 +9,11 @@
 <body>
     <p class="title">To-Do List</p>
     <div class="input-grid">
+        <input placeholder="To-Do" class="js-todo-input todoInput">
 
-        <input placeholder="To-Do" class="js-todo todoInput" onkeydown="
-        if(event.key==='Enter') addTodo();
-        ">
+        <input type="date" class="js-dueDate">
 
-        <input type="date" class="js-dueDate" onkeydown="
-            if(event.key==='Enter') addTodo();
-        ">
-
-        <button class="add-button" onclick="
-            addTodo();
-        ">Add</button>
+        <button class="add-button js-add-button">Add</button>
     </div>
 
     <div class="js-to-do-list todo-grid"></div>
