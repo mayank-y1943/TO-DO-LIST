@@ -4,16 +4,17 @@ const todoListObject=[];
 
         function updateToDo(){
             let html='';
-            for(let i=0; i<todoListObject.length; i++){
-                let name=todoListObject[i].name;
-                let dueDate=todoListObject[i].dueDate;
+            todoListObject.forEach(function(value, index){
+                // let name=value.name;
+                // let dueDate=value.dueDate;
+                let {name, dueDate}=value;
                 html+=`<div>${name}</div>
                        <div>${dueDate}</div>
                        <button class="delete-button" onclick="
-                        todoListObject.splice(${i}, 1);
+                        todoListObject.splice(${index}, 1);
                         updateToDo();
                        ">Delete</button>`;
-            }
+            });
             document.querySelector('.js-to-do-list').innerHTML=html;
         }
 
