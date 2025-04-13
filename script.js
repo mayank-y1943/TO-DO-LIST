@@ -22,12 +22,16 @@ function updateToDo(){
         let {name, dueDate}=value;
         html+=`<div>${name}</div>
                 <div>${dueDate}</div>
-                <button class="delete-button" onclick="
-                todoListObject.splice(${index}, 1);
-                updateToDo();
-                ">Delete</button>`;
+                <button class="delete-button js-delete-button">Delete</button>`;
     });
     document.querySelector('.js-to-do-list').innerHTML=html;
+
+    document.querySelectorAll('.js-delete-button').forEach((deleteButton, index)=>{
+        deleteButton.addEventListener('click', ()=>{
+            todoListObject.splice(index, 1);
+            updateToDo();
+        });
+    });
 }
 
 function addTodo(){
