@@ -10,8 +10,8 @@ document.querySelector('.js-add-button').addEventListener('click', ()=>{
     addTodo();
 });
 
-const todoListObject=[];
-        
+let todoListObject=[];
+        todoListObject=JSON.parse(localStorage.getItem('toDo'));
 updateToDo();
 
 function updateToDo(){
@@ -30,6 +30,7 @@ function updateToDo(){
         deleteButton.addEventListener('click', ()=>{
             todoListObject.splice(index, 1);
             updateToDo();
+            saveToStorage();
         });
     });
 }
@@ -51,6 +52,11 @@ function addTodo(){
         el1.value='';
         el2.value='';
         updateToDo();
+        saveToStorage();
         document.querySelector('.js-invalid').innerHTML='';
     }
+}
+
+function saveToStorage(){
+    localStorage.setItem('toDo', JSON.stringify(todoListObject));
 }
