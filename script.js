@@ -10,8 +10,8 @@ document.querySelector('.js-add-button').addEventListener('click', ()=>{
     addTodo();
 });
 
-let todoListObject=[];
-        todoListObject=JSON.parse(localStorage.getItem('toDo'));
+todoListObject = JSON.parse(localStorage.getItem('toDo')) || [];
+
 updateToDo();
 
 function updateToDo(){
